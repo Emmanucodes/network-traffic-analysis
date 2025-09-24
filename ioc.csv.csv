@@ -1,0 +1,12 @@
+Type,Indicator,Behavior / Context,VT Detection Score / Reference,Verdict,Appendix Ref
+IP,78.153.140.179,Repeated .env file probes (37 requests),13/95,Malicious,Fig A1
+IP,116.196.87.121,Multiple phpunit/ThinkPHP exploit requests (45 requests),0/95,Suspicious Scanning,Fig A2
+IP,87.251.78.46,Attempted access to /.aws/credentials,"""6/95""",Malicious,Fig A3
+IP,193.41.206.189,Probing for /.aws/credentials,"""4/95""",Malicious,Fig A4
+IP,217.154.112.93,Attempted access to Symfony parameters.yml,0/95,Suspicious Scanning,Fig A5
+URI,"/.env, /admin/.env, /javascript/.env",Environment file probes (common credential target),,Malicious,
+URI,/.aws/credentials,Direct attempt to access AWS credential file,,Malicious,
+URI,/app_dev.php/_profiler/open?file=app/config/parameters.yml,Symfony config file probing,,Suspicious,
+URI,/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php,PHPUnit exploit path (CVE-2017-9841),,Malicious,
+URI,index.php?s=/Index/...invokefunction&function=call_user_func_array,ThinkPHP RCE probe (CVE-2019-9082),,Malicious,
+URI,POST /GponForm/diag_Form?...wget Mozi.m,Command injection ? Mozi botnet dropper attempt,,Malicious,
